@@ -1,21 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
-import BottomNav from './BottomNav/BottomNav';
-import Titre from './Content/Titre';
-import VignetteRecette from './Content/VignetteRecette';
+import BottomNav from './Nav/BottomNav';
+import Content from './Content/Content';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import ListeRecettes from './Content/ListeRecette';
 
 function App() {
-  return (
-    <body>
-
-    <div className="container">
-      <Titre title='Nos dernières recettes'/>
-      <VignetteRecette />
-    </div>
-    <div>
-      <BottomNav />
-    </div>
-    </body>
+    return (
+      <BrowserRouter>
+        <div>
+          <BottomNav active='home' />
+          <Routes>
+            <Route
+              path='/'
+              element={
+                <Content title='Nos dernières recettes'>
+                  <ListeRecettes />
+                </Content>
+              }
+            />
+            <Route
+              path='/ajouter-une-recette'
+              element={
+                <Content title='Ajouter une recette'>
+                  <p>coucou</p>
+                </Content>
+              }
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
   );
 }
 

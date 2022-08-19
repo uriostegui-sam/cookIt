@@ -3,15 +3,21 @@
 :root {
   --color-nickel: #70716f;
   --color-platinium: #ebeaeb;
+  --color-red: #c55252;
+  --color-green: rgba(104, 134, 73, 1);
+  --color-gold-black: #b8ae57;
+  --color-gold: #fff280;
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  padding: 0;
+  font-family: "Roboto" -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--color-nickel);
 }
 
 code {

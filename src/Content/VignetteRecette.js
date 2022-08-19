@@ -3,27 +3,54 @@ import poulet from '../img/PouletSauceMoutarde.jpg'
 import salade from '../img/saladeCaesar.jpeg'
 import sushi from '../img/sushi.jpg'
 
-export default function VignetteRecette({
+export default function VignetteRecette2({
   /* const imgs = [poulet, salade, sushi] */
-  recette = {
-    title: 'Poulet sauce moutarde',
-    favorite: <i class="fas fa-heart"></i>,
-    noFavorite: <i class="far fa-heart"></i>,
-    prepTime: 20,
-    note: <i class="fas fa-star"></i>,
-    difficultyF: 'Facile',
-    difficultyD: 'Difficile',
-  }
-  
-}) {
+    title,
+    liked,
+    duration,
+    stars,
+    level,
+    image,
+  }) {
   return(
-    <div>
-      <img className={classes.imgs} src={poulet} />
-      <h1 className={`${classes.title} ${classes.all} ${classes.absolute} ${classes.top} ${classes.left}`}>{recette.title}</h1>
-      <p className={`${classes.fav} ${classes.absolute} ${classes.top} ${classes.right}`}>{recette.favorite}</p>
-      <p className={`${classes.prepTime} ${classes.all} ${classes.absolute} ${classes.right}`}>{recette.prepTime} min</p>
-      <p className={`${classes.note}  ${classes.all} ${classes.absolute} ${classes.bottom} ${classes.right}`}>{recette.note}</p>
-      <p className={`${classes.difficultyF}  ${classes.all} ${classes.absolute} ${classes.bottom} ${classes.left} ${classes.easy}`}>{recette.difficulty}</p>
+    <div className={classes.recipeThumb}>
+      <div className={classes.backgroundImage}>
+        <img src={image} />
+      </div>
+      <div className={classes.firstLine}>
+        <p className={classes.title}>{title}</p>
+        <p className={classes.liked}>
+        {liked ? (
+          <i class="fas fa-heart"></i>
+        ):(
+          <i class="far fa-heart"></i>
+        )}
+        </p>
+      </div>
+      <div className={classes.secondLine}>
+        <p className={classes.duration}>{duration}</p>
+      </div>
+      <div className={classes.thirdLine}>
+        <p className={
+            classes.level +
+            ' ' +
+            (level === 'Facile'
+              ? classes.easy
+              : level === 'Moyen'
+              ? classes.medium
+              : classes.hard)
+          }
+        >
+          {level}</p>
+        <p className={classes.stars}>
+          {Array(stars)
+            .fill(null)
+            .map((value, index) => (
+              <i key={`star-${index}`} className='fas fa-star'></i>
+          ))}
+          </p>
+      </div>
     </div>
+
   )
   }
